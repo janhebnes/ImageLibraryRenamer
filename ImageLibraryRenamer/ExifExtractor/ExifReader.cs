@@ -68,8 +68,7 @@ namespace ExifLib
                 _reader = new BinaryReader(_stream);
 
                 // Make sure the file's a JPEG.
-                if (ReadUShort() != 0xFFD8)
-                    throw new ExifLibException("File is not a valid JPEG");
+                if (ReadUShort() != 0xFFD8) throw new ExifLibException("File is not a valid JPEG");
 
                 // Scan to the start of the Exif content
                 ReadToExifStart();
@@ -83,6 +82,11 @@ namespace ExifLib
                 Dispose();
 
                 throw;
+            }
+            finally
+            {
+                // make sure there's no mess left behind
+                Dispose();
             }
         }
 

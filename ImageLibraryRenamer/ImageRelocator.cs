@@ -322,10 +322,13 @@ namespace ImageLibraryRenamer
                     var newFilename = pair.Value;
                     FileInfo file = new FileInfo(oldFilename);
 
-                    if (file.Exists)
+                    if (file.Exists && !File.Exists(newFilename))
                     {
-                        File.Copy(oldFilename, newFilename);
-                        File.Delete(oldFilename);
+                        File.Move(oldFilename, newFilename);
+                    }
+                    else
+                    {
+                        Debug.Write("Skipping");
                     }
                 }
                 catch (Exception ex)
@@ -345,10 +348,9 @@ namespace ImageLibraryRenamer
                         var newFilename = pair.Value;
                         FileInfo file = new FileInfo(oldFilename);
 
-                        if (file.Exists)
+                        if (file.Exists && !File.Exists(newFilename))
                         {
-                            File.Copy(oldFilename, newFilename);
-                            File.Delete(oldFilename);
+                            File.Move(oldFilename, newFilename);
                         }
                     }
                     catch (Exception ex)
