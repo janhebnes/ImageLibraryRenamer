@@ -73,6 +73,7 @@
             this.btnRelocateImages = new System.Windows.Forms.Button();
             this.chkUseEXIFDataToGetDateImageRelocator = new System.Windows.Forms.CheckBox();
             this.ckhRecursiveImageRelocator = new System.Windows.Forms.CheckBox();
+            this.chkCreateMissingTargetFolderImageRelocator = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -472,6 +473,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.chkCreateMissingTargetFolderImageRelocator);
             this.tabPage6.Controls.Add(this.ckhRecursiveImageRelocator);
             this.tabPage6.Controls.Add(this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator);
             this.tabPage6.Controls.Add(this.label10);
@@ -592,6 +594,18 @@
             this.ckhRecursiveImageRelocator.Text = "Recursive inside main folders";
             this.ckhRecursiveImageRelocator.UseVisualStyleBackColor = true;
             // 
+            // chkCreateMissingTargetFolderImageRelocator
+            // 
+            this.chkCreateMissingTargetFolderImageRelocator.AutoSize = true;
+            this.chkCreateMissingTargetFolderImageRelocator.Checked = true;
+            this.chkCreateMissingTargetFolderImageRelocator.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkCreateMissingTargetFolderImageRelocator.Location = new System.Drawing.Point(31, 253);
+            this.chkCreateMissingTargetFolderImageRelocator.Name = "chkCreateMissingTargetFolderImageRelocator";
+            this.chkCreateMissingTargetFolderImageRelocator.Size = new System.Drawing.Size(158, 17);
+            this.chkCreateMissingTargetFolderImageRelocator.TabIndex = 28;
+            this.chkCreateMissingTargetFolderImageRelocator.Text = "Create missing target folders";
+            this.chkCreateMissingTargetFolderImageRelocator.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -662,6 +676,7 @@
         private System.Windows.Forms.TextBox txtDatePatternImageRelocator;
         private System.Windows.Forms.CheckBox chkIgnoreFoldersNotMatchingDatePatternImageRelocator;
         private System.Windows.Forms.CheckBox ckhRecursiveImageRelocator;
+        private System.Windows.Forms.CheckBox chkCreateMissingTargetFolderImageRelocator;
     }
 }
 

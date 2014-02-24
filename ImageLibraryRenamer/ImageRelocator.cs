@@ -107,10 +107,13 @@ namespace ImageLibraryRenamer
             public bool SkipIfFolderHasXmpFile { get; set; }
 
             public bool SkipIfFolderNameAlreadyHasDate { get; set; }
+
+            public bool CreateMissingTargetFolders { get; set; }
         }
 
         
-        public Dictionary<string, string> RenameQueue = new Dictionary<string, string>();
+        public Dictionary<string, string> RelocatorQueue = new Dictionary<string, string>();
+        public Dictionary<string, string> MissingTargetQueue = new Dictionary<string, string>();
         private RelocateImagesParams options;
 
         public ImageRelocator(RelocateImagesParams options)
@@ -237,11 +240,22 @@ namespace ImageLibraryRenamer
 
                 if (nearestTarget == null)
                 {
-                    options.Logger.Log("[SKIPPING] target folder name matching date could not be detected");
+                    options.Logger.Log(string.Format("[SKIPPING] target folder name matching {0} could not be detected", folderDate.ToString("yyyy-MM-dd")));
+                    string newUnknownDir = Path.Combine(directoryInfo.Parent.FullName, folderDate.ToString("yyyy-MM-dd"));
+                    string newUnknownPath = Path.Combine(newUnknownDir, file.Name);
+                    MissingTargetQueue.Add(file.FullName, newUnknownPath);
+                    options.Logger.Log(string.Format("[MISSINGRELOCATE] {0} >> {1}", file.FullName, newUnknownPath));
+
+                    if (options.CreateMissingTargetFolders 
+                        && !options.TestMode)
+                    {
+                        directoryInfo.Parent.CreateSubdirectory(folderDate.ToString("yyyy-MM-dd"));
+                    }
+
                     continue;
                 }
 
-                string newPath = Path.Combine(nearestTarget.FullName, file.FullName);
+                string newPath = Path.Combine(nearestTarget.FullName, file.Name);
 
                 if (File.Exists(newPath))
                 {
@@ -251,14 +265,12 @@ namespace ImageLibraryRenamer
 
                 options.Logger.Log(string.Format("[RELOCATE] {0} >> {1}", file.FullName, newPath));
 
-
-                RenameQueue.Add(file.FullName, newPath);
-
+                
+                this.RelocatorQueue.Add(file.FullName, newPath);
             }
 
-            
-            
             ParseSubDirectories(directoryInfo);
+            
         }
 
         private void ParseSubDirectories(DirectoryInfo directoryInfo)
@@ -298,20 +310,53 @@ namespace ImageLibraryRenamer
             return !value.ToCharArray().Where(x => !Char.IsDigit(x)).Any();
         }
 
-        public void RenameFolders()
+        public void RelocateImages()
         {
-            RenameQueue.Reverse().ToList().ForEach(pair =>
+            this.RelocatorQueue.Reverse().ToList().ForEach(pair =>
             {
                 try
                 {
                     Debug.WriteLine(pair.Key + " >> " + pair.Value);
-                    Directory.Move(pair.Key, pair.Value);
+                 
+                    var oldFilename = pair.Key;
+                    var newFilename = pair.Value;
+                    FileInfo file = new FileInfo(oldFilename);
+
+                    if (file.Exists)
+                    {
+                        File.Copy(oldFilename, newFilename);
+                        File.Delete(oldFilename);
+                    }
                 }
                 catch (Exception ex)
                 {
                     options.Logger.FatalLog(ex.ToString());
                 }
             });
+
+            if (options.CreateMissingTargetFolders)
+            {
+                MissingTargetQueue.Reverse().ToList().ForEach(pair =>
+                {
+                    try
+                    {
+                        Debug.WriteLine(pair.Key + " >> " + pair.Value);
+                        var oldFilename = pair.Key;
+                        var newFilename = pair.Value;
+                        FileInfo file = new FileInfo(oldFilename);
+
+                        if (file.Exists)
+                        {
+                            File.Copy(oldFilename, newFilename);
+                            File.Delete(oldFilename);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        options.Logger.FatalLog(ex.ToString());
+                    }
+                });
+            }
         }
     }
 }

@@ -139,7 +139,8 @@ namespace ImageLibraryRenamer
                 SkipFolders = txtSkipFolders.Text,
                 Logger = Logger,
                 SkipIfFolderHasXmpFile = chkSkipIfXmp.Checked,
-                SkipIfFolderNameAlreadyHasDate = chkSkipIfFolderNameAlreadyHasDate.Checked
+                SkipIfFolderNameAlreadyHasDate = chkSkipIfFolderNameAlreadyHasDate.Checked,
+                CreateMissingTargetFolders = chkCreateMissingTargetFolderImageRelocator.Checked
             };
 
             var relocater = new ImageRelocator(options);
@@ -148,32 +149,31 @@ namespace ImageLibraryRenamer
 
             relocater.ParseImageDates(txtPath.Text);
 
-            //if (!options.TestMode)
-            //{
-            //    Logger.Log(renamer.RenameQueue.Count + " folder renames in Queue.  Renaming now..");
+            if (!options.TestMode)
+            {
+                Logger.Log((relocater.RelocatorQueue.Count + relocater.MissingTargetQueue.Count) + " image relocations in Queue.  Renaming now..");
 
-            //    DialogResult response =
-            //        MessageBox.Show(string.Format("Rename {0} folders now?", renamer.RenameQueue.Count),
-            //                        "Confirm Rename", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult response =
+                    MessageBox.Show(string.Format("Relocate {0} images now?", relocater.RelocatorQueue.Count),
+                                    "Confirm Relocation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            //    if (response == DialogResult.Yes)
-            //    {
-            //        renamer.RenameFolders();
-            //    }
-            //    else
-            //    {
-            //        Logger.Log("Cancelled rename");
-            //    }
-            //}
-            //else
-            //{
-                Logger.Log(relocater.RenameQueue.Count +
+                if (response == DialogResult.Yes)
+                {
+                    relocater.RelocateImages();
+                }
+                else
+                {
+                    Logger.Log("Cancelled relocation");
+                }
+            }
+            else
+            {
+                Logger.Log(relocater.RelocatorQueue.Count +
                            " folder renames in Queue.  Skipping rename because preview/test is checked.");
-            //}
+            }
 
 
             Logger.Log("Done.");
-            MessageBox.Show("Done");
         }
 
         private void label10_Click(object sender, EventArgs e)
