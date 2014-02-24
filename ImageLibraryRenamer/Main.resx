@@ -144,4 +144,11 @@ Useful when you do not have valid EXIF date information in the files because the
 
 Then you can set the "capture date" in Lightroom, etc by using the file create date option.</value>
   </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Relocates your images into folders based on the EXIF date and/or the file creation dates. 
+Useful when Picasa imports from e.g. mobil phones has located your image files in random folders due to bugs when reading exif in the import software or drag and drop errors.
+
+Pushes the files into the folders that match the picture exif or file date.
+Safe to run on the same set of folders multiple times - will only move files from the first subfolder levels.</value>
+  </data>
 </root>

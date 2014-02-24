@@ -35,25 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtDatePattern = new System.Windows.Forms.TextBox();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.chkSkipIfFolderNameAlreadyHasDate = new System.Windows.Forms.CheckBox();
-            this.chkSkipIfXmp = new System.Windows.Forms.CheckBox();
-            this.chkSkipNumeric = new System.Windows.Forms.CheckBox();
-            this.chkSkipTopLevel = new System.Windows.Forms.CheckBox();
-            this.chkPreview = new System.Windows.Forms.CheckBox();
-            this.chkRecusrive = new System.Windows.Forms.CheckBox();
-            this.chkUseFileDateIfNoEXIF = new System.Windows.Forms.CheckBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lbStatus = new System.Windows.Forms.ListBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnEmbedPicasaProperties = new System.Windows.Forms.Button();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnParseFolderNames = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.numDateDifference = new System.Windows.Forms.NumericUpDown();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.Test = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSkipFolders = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,22 +44,49 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnPickFolder = new System.Windows.Forms.Button();
             this.txtPath = new System.Windows.Forms.TextBox();
-            this.Test = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lbStatus = new System.Windows.Forms.ListBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label8 = new System.Windows.Forms.Label();
+            this.chkSkipIfFolderNameAlreadyHasDate = new System.Windows.Forms.CheckBox();
+            this.chkSkipIfXmp = new System.Windows.Forms.CheckBox();
+            this.chkSkipNumeric = new System.Windows.Forms.CheckBox();
+            this.chkSkipTopLevel = new System.Windows.Forms.CheckBox();
+            this.chkPreview = new System.Windows.Forms.CheckBox();
+            this.chkRecusrive = new System.Windows.Forms.CheckBox();
+            this.chkUseFileDateIfNoEXIF = new System.Windows.Forms.CheckBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnEmbedPicasaProperties = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.numDateDifference = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnParseFolderNames = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtDatePatternImageRelocator = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.chkPreviewImageRelocator = new System.Windows.Forms.CheckBox();
+            this.chkUseFileDateIfNoEXIFImageRelocator = new System.Windows.Forms.CheckBox();
+            this.btnRelocateImages = new System.Windows.Forms.Button();
+            this.chkUseEXIFDataToGetDateImageRelocator = new System.Windows.Forms.CheckBox();
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDateDifference)).BeginInit();
-            this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGo
             // 
             this.btnGo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGo.Location = new System.Drawing.Point(225, 289);
+            this.btnGo.Location = new System.Drawing.Point(258, 289);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(185, 65);
             this.btnGo.TabIndex = 0;
@@ -115,7 +125,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDatePattern.Location = new System.Drawing.Point(125, 128);
             this.txtDatePattern.Name = "txtDatePattern";
-            this.txtDatePattern.Size = new System.Drawing.Size(215, 20);
+            this.txtDatePattern.Size = new System.Drawing.Size(248, 20);
             this.txtDatePattern.TabIndex = 5;
             this.txtDatePattern.Text = "yyyy-MM-dd [folder]";
             // 
@@ -126,12 +136,127 @@
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Controls.Add(this.tabPage4);
+            this.tabControl.Controls.Add(this.tabPage6);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(437, 388);
+            this.tabControl.Size = new System.Drawing.Size(470, 388);
             this.tabControl.TabIndex = 7;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.Test);
+            this.tabPage5.Controls.Add(this.label4);
+            this.tabPage5.Controls.Add(this.txtSkipFolders);
+            this.tabPage5.Controls.Add(this.label3);
+            this.tabPage5.Controls.Add(this.txtFileNamePattern);
+            this.tabPage5.Controls.Add(this.label1);
+            this.tabPage5.Controls.Add(this.btnPickFolder);
+            this.tabPage5.Controls.Add(this.txtPath);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(462, 362);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Common";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // Test
+            // 
+            this.Test.AutoSize = true;
+            this.Test.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Test.Location = new System.Drawing.Point(22, 16);
+            this.Test.Name = "Test";
+            this.Test.Size = new System.Drawing.Size(305, 24);
+            this.Test.TabIndex = 23;
+            this.Test.Text = "These settings apply to all the tools:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 137);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Skip Folders";
+            // 
+            // txtSkipFolders
+            // 
+            this.txtSkipFolders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSkipFolders.Location = new System.Drawing.Point(112, 134);
+            this.txtSkipFolders.Name = "txtSkipFolders";
+            this.txtSkipFolders.Size = new System.Drawing.Size(248, 20);
+            this.txtSkipFolders.TabIndex = 21;
+            this.txtSkipFolders.Text = "Photo Stream,Picasa";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Filename Pattern";
+            // 
+            // txtFileNamePattern
+            // 
+            this.txtFileNamePattern.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFileNamePattern.Location = new System.Drawing.Point(114, 98);
+            this.txtFileNamePattern.Name = "txtFileNamePattern";
+            this.txtFileNamePattern.Size = new System.Drawing.Size(248, 20);
+            this.txtFileNamePattern.TabIndex = 19;
+            this.txtFileNamePattern.Text = "*";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 73);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Initial Folder";
+            // 
+            // btnPickFolder
+            // 
+            this.btnPickFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPickFolder.Location = new System.Drawing.Point(377, 68);
+            this.btnPickFolder.Name = "btnPickFolder";
+            this.btnPickFolder.Size = new System.Drawing.Size(42, 22);
+            this.btnPickFolder.TabIndex = 16;
+            this.btnPickFolder.Text = "...";
+            this.btnPickFolder.UseVisualStyleBackColor = true;
+            // 
+            // txtPath
+            // 
+            this.txtPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPath.Location = new System.Drawing.Point(114, 70);
+            this.txtPath.Name = "txtPath";
+            this.txtPath.Size = new System.Drawing.Size(248, 20);
+            this.txtPath.TabIndex = 17;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.lbStatus);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(462, 362);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Log";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lbStatus
+            // 
+            this.lbStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbStatus.FormattingEnabled = true;
+            this.lbStatus.Location = new System.Drawing.Point(3, 3);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(456, 356);
+            this.lbStatus.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -150,10 +275,20 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(429, 362);
+            this.tabPage1.Size = new System.Drawing.Size(462, 362);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Folder Renamer";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.Location = new System.Drawing.Point(18, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(425, 96);
+            this.label8.TabIndex = 18;
+            this.label8.Text = resources.GetString("label8.Text");
             // 
             // chkSkipIfFolderNameAlreadyHasDate
             // 
@@ -238,26 +373,6 @@
             this.chkUseFileDateIfNoEXIF.Text = "Use file date if no EXIF date";
             this.chkUseFileDateIfNoEXIF.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.lbStatus);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(429, 362);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Log";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // lbStatus
-            // 
-            this.lbStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbStatus.FormattingEnabled = true;
-            this.lbStatus.Location = new System.Drawing.Point(3, 3);
-            this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(423, 356);
-            this.lbStatus.TabIndex = 0;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.label5);
@@ -265,7 +380,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(429, 362);
+            this.tabPage3.Size = new System.Drawing.Size(462, 362);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Picasa Embeder";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -276,7 +391,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.Location = new System.Drawing.Point(19, 23);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(392, 175);
+            this.label5.Size = new System.Drawing.Size(425, 175);
             this.label5.TabIndex = 4;
             this.label5.Text = resources.GetString("label5.Text");
             // 
@@ -284,7 +399,7 @@
             // 
             this.btnEmbedPicasaProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEmbedPicasaProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmbedPicasaProperties.Location = new System.Drawing.Point(201, 305);
+            this.btnEmbedPicasaProperties.Location = new System.Drawing.Point(234, 305);
             this.btnEmbedPicasaProperties.Name = "btnEmbedPicasaProperties";
             this.btnEmbedPicasaProperties.Size = new System.Drawing.Size(222, 49);
             this.btnEmbedPicasaProperties.TabIndex = 1;
@@ -301,41 +416,10 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(429, 362);
+            this.tabPage4.Size = new System.Drawing.Size(462, 362);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Folder Name Parser";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.Location = new System.Drawing.Point(12, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(392, 122);
-            this.label6.TabIndex = 6;
-            this.label6.Text = resources.GetString("label6.Text");
-            // 
-            // btnParseFolderNames
-            // 
-            this.btnParseFolderNames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnParseFolderNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnParseFolderNames.Location = new System.Drawing.Point(194, 298);
-            this.btnParseFolderNames.Name = "btnParseFolderNames";
-            this.btnParseFolderNames.Size = new System.Drawing.Size(222, 49);
-            this.btnParseFolderNames.TabIndex = 5;
-            this.btnParseFolderNames.Text = "Parse Folder Names";
-            this.btnParseFolderNames.UseVisualStyleBackColor = true;
-            this.btnParseFolderNames.Click += new System.EventHandler(this.btnParseFolderNames_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(27, 174);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(359, 13);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Only update date if difference between actual and folder date is more than:";
             // 
             // numDateDifference
             // 
@@ -354,128 +438,166 @@
             0,
             0});
             // 
-            // tabPage5
+            // label7
             // 
-            this.tabPage5.Controls.Add(this.Test);
-            this.tabPage5.Controls.Add(this.label4);
-            this.tabPage5.Controls.Add(this.txtSkipFolders);
-            this.tabPage5.Controls.Add(this.label3);
-            this.tabPage5.Controls.Add(this.txtFileNamePattern);
-            this.tabPage5.Controls.Add(this.label1);
-            this.tabPage5.Controls.Add(this.btnPickFolder);
-            this.tabPage5.Controls.Add(this.txtPath);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(429, 362);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Common";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(27, 174);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(359, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Only update date if difference between actual and folder date is more than:";
             // 
-            // label4
+            // label6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 137);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Skip Folders";
-            // 
-            // txtSkipFolders
-            // 
-            this.txtSkipFolders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSkipFolders.Location = new System.Drawing.Point(112, 134);
-            this.txtSkipFolders.Name = "txtSkipFolders";
-            this.txtSkipFolders.Size = new System.Drawing.Size(215, 20);
-            this.txtSkipFolders.TabIndex = 21;
-            this.txtSkipFolders.Text = "Photo Stream,Picasa";
+            this.label6.Location = new System.Drawing.Point(12, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(425, 122);
+            this.label6.TabIndex = 6;
+            this.label6.Text = resources.GetString("label6.Text");
             // 
-            // label3
+            // btnParseFolderNames
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 13);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Filename Pattern";
+            this.btnParseFolderNames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnParseFolderNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnParseFolderNames.Location = new System.Drawing.Point(227, 298);
+            this.btnParseFolderNames.Name = "btnParseFolderNames";
+            this.btnParseFolderNames.Size = new System.Drawing.Size(222, 49);
+            this.btnParseFolderNames.TabIndex = 5;
+            this.btnParseFolderNames.Text = "Parse Folder Names";
+            this.btnParseFolderNames.UseVisualStyleBackColor = true;
+            this.btnParseFolderNames.Click += new System.EventHandler(this.btnParseFolderNames_Click);
             // 
-            // txtFileNamePattern
+            // tabPage6
             // 
-            this.txtFileNamePattern.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tabPage6.Controls.Add(this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator);
+            this.tabPage6.Controls.Add(this.label10);
+            this.tabPage6.Controls.Add(this.txtDatePatternImageRelocator);
+            this.tabPage6.Controls.Add(this.label9);
+            this.tabPage6.Controls.Add(this.chkPreviewImageRelocator);
+            this.tabPage6.Controls.Add(this.chkUseFileDateIfNoEXIFImageRelocator);
+            this.tabPage6.Controls.Add(this.btnRelocateImages);
+            this.tabPage6.Controls.Add(this.chkUseEXIFDataToGetDateImageRelocator);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(462, 362);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Image Relocator";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(28, 159);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(202, 13);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Allowed Folder Date Patterns (| separator)";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // txtDatePatternImageRelocator
+            // 
+            this.txtDatePatternImageRelocator.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFileNamePattern.Location = new System.Drawing.Point(114, 98);
-            this.txtFileNamePattern.Name = "txtFileNamePattern";
-            this.txtFileNamePattern.Size = new System.Drawing.Size(215, 20);
-            this.txtFileNamePattern.TabIndex = 19;
-            this.txtFileNamePattern.Text = "*";
+            this.txtDatePatternImageRelocator.Location = new System.Drawing.Point(236, 156);
+            this.txtDatePatternImageRelocator.Name = "txtDatePatternImageRelocator";
+            this.txtDatePatternImageRelocator.Size = new System.Drawing.Size(198, 20);
+            this.txtDatePatternImageRelocator.TabIndex = 24;
+            this.txtDatePatternImageRelocator.Text = "yyyy-MM-dd [folder]|yyyy-MM [folder]";
             // 
-            // label1
+            // label9
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 73);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Initial Folder";
-            // 
-            // btnPickFolder
-            // 
-            this.btnPickFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPickFolder.Location = new System.Drawing.Point(344, 68);
-            this.btnPickFolder.Name = "btnPickFolder";
-            this.btnPickFolder.Size = new System.Drawing.Size(42, 22);
-            this.btnPickFolder.TabIndex = 16;
-            this.btnPickFolder.Text = "...";
-            this.btnPickFolder.UseVisualStyleBackColor = true;
-            // 
-            // txtPath
-            // 
-            this.txtPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPath.Location = new System.Drawing.Point(114, 70);
-            this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(215, 20);
-            this.txtPath.TabIndex = 17;
+            this.label9.Location = new System.Drawing.Point(19, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(425, 132);
+            this.label9.TabIndex = 23;
+            this.label9.Text = resources.GetString("label9.Text");
             // 
-            // Test
+            // chkPreviewImageRelocator
             // 
-            this.Test.AutoSize = true;
-            this.Test.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Test.Location = new System.Drawing.Point(22, 16);
-            this.Test.Name = "Test";
-            this.Test.Size = new System.Drawing.Size(305, 24);
-            this.Test.TabIndex = 23;
-            this.Test.Text = "These settings apply to all the tools:";
+            this.chkPreviewImageRelocator.AutoSize = true;
+            this.chkPreviewImageRelocator.Checked = true;
+            this.chkPreviewImageRelocator.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkPreviewImageRelocator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPreviewImageRelocator.Location = new System.Drawing.Point(31, 230);
+            this.chkPreviewImageRelocator.Name = "chkPreviewImageRelocator";
+            this.chkPreviewImageRelocator.Size = new System.Drawing.Size(192, 17);
+            this.chkPreviewImageRelocator.TabIndex = 22;
+            this.chkPreviewImageRelocator.Text = "Test Mode (Read Only Mode)";
+            this.chkPreviewImageRelocator.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // chkUseFileDateIfNoEXIFImageRelocator
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.Location = new System.Drawing.Point(18, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(392, 96);
-            this.label8.TabIndex = 18;
-            this.label8.Text = resources.GetString("label8.Text");
+            this.chkUseFileDateIfNoEXIFImageRelocator.AutoSize = true;
+            this.chkUseFileDateIfNoEXIFImageRelocator.Checked = true;
+            this.chkUseFileDateIfNoEXIFImageRelocator.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkUseFileDateIfNoEXIFImageRelocator.Location = new System.Drawing.Point(196, 203);
+            this.chkUseFileDateIfNoEXIFImageRelocator.Name = "chkUseFileDateIfNoEXIFImageRelocator";
+            this.chkUseFileDateIfNoEXIFImageRelocator.Size = new System.Drawing.Size(158, 17);
+            this.chkUseFileDateIfNoEXIFImageRelocator.TabIndex = 21;
+            this.chkUseFileDateIfNoEXIFImageRelocator.Text = "Use file date if no EXIF date";
+            this.chkUseFileDateIfNoEXIFImageRelocator.UseVisualStyleBackColor = true;
+            // 
+            // btnRelocateImages
+            // 
+            this.btnRelocateImages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRelocateImages.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelocateImages.Location = new System.Drawing.Point(22, 289);
+            this.btnRelocateImages.Name = "btnRelocateImages";
+            this.btnRelocateImages.Size = new System.Drawing.Size(422, 51);
+            this.btnRelocateImages.TabIndex = 19;
+            this.btnRelocateImages.Text = "Relocate my Images!";
+            this.btnRelocateImages.UseVisualStyleBackColor = true;
+            this.btnRelocateImages.Click += new System.EventHandler(this.btnRelocateImages_Click);
+            // 
+            // chkUseEXIFDataToGetDateImageRelocator
+            // 
+            this.chkUseEXIFDataToGetDateImageRelocator.AutoSize = true;
+            this.chkUseEXIFDataToGetDateImageRelocator.Checked = true;
+            this.chkUseEXIFDataToGetDateImageRelocator.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkUseEXIFDataToGetDateImageRelocator.Location = new System.Drawing.Point(31, 203);
+            this.chkUseEXIFDataToGetDateImageRelocator.Name = "chkUseEXIFDataToGetDateImageRelocator";
+            this.chkUseEXIFDataToGetDateImageRelocator.Size = new System.Drawing.Size(159, 17);
+            this.chkUseEXIFDataToGetDateImageRelocator.TabIndex = 20;
+            this.chkUseEXIFDataToGetDateImageRelocator.Text = "Use EXIF Data To Get Date";
+            this.chkUseEXIFDataToGetDateImageRelocator.UseVisualStyleBackColor = true;
+            // 
+            // chkIgnoreFoldersNotMatchingDatePatternImageRelocator
+            // 
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.AutoSize = true;
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Checked = true;
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Location = new System.Drawing.Point(196, 181);
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Name = "chkIgnoreFoldersNotMatchingDatePatternImageRelocator";
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Size = new System.Drawing.Size(213, 17);
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.TabIndex = 26;
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Text = "Skip folders not matching Date Patterns";
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 388);
+            this.ClientSize = new System.Drawing.Size(470, 388);
             this.Controls.Add(this.tabControl);
             this.Name = "Main";
             this.Text = "Photo Folder Renamer";
             this.tabControl.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDateDifference)).EndInit();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -516,6 +638,15 @@
         private System.Windows.Forms.Button btnPickFolder;
         private System.Windows.Forms.TextBox txtPath;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox chkPreviewImageRelocator;
+        private System.Windows.Forms.CheckBox chkUseFileDateIfNoEXIFImageRelocator;
+        private System.Windows.Forms.Button btnRelocateImages;
+        private System.Windows.Forms.CheckBox chkUseEXIFDataToGetDateImageRelocator;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtDatePatternImageRelocator;
+        private System.Windows.Forms.CheckBox chkIgnoreFoldersNotMatchingDatePatternImageRelocator;
     }
 }
 

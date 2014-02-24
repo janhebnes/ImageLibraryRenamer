@@ -120,6 +120,67 @@ namespace ImageLibraryRenamer
 
         #endregion UI
 
+        private void btnRelocateImages_Click(object sender, EventArgs e)
+        {
+            Logger.Clear();
+
+            Logger.Log("Starting image relocator...");
+
+            tabControl.SelectTab(1);
+
+            Application.DoEvents();
+
+            //var options = new FolderDateRenamer.RenameFoldersParams(txtFileNamePattern.Text,chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Checked,
+            //                                                        txtDatePatternImageRelocator.Text, chkUseEXIFDataToGetDateImageRelocator.Checked,
+            //                                                        chkUseFileDateIfNoEXIFImageRelocator.Checked, chkPreviewImageRelocator.Checked)
+            //{
+            //    SkipTopLevel = chkSkipTopLevel.Checked,
+            //    SkipNumeric = chkSkipNumeric.Checked,
+            //    SkipFolders = txtSkipFolders.Text,
+            //    Logger = Logger,
+            //    SkipIfFolderHasXmpFile = chkSkipIfXmp.Checked,
+            //    SkipIfFolderNameAlreadyHasDate = chkSkipIfFolderNameAlreadyHasDate.Checked
+            //};
+
+            //var renamer = new FolderDateRenamer(options);
+
+            //Logger.Log("Parsing images in " + txtPath.Text);
+
+            //renamer.ParseImageDates(txtPath.Text);
+
+            //if (!options.TestMode)
+            //{
+            //    Logger.Log(renamer.RenameQueue.Count + " folder renames in Queue.  Renaming now..");
+
+            //    DialogResult response =
+            //        MessageBox.Show(string.Format("Rename {0} folders now?", renamer.RenameQueue.Count),
+            //                        "Confirm Rename", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            //    if (response == DialogResult.Yes)
+            //    {
+            //        renamer.RenameFolders();
+            //    }
+            //    else
+            //    {
+            //        Logger.Log("Cancelled rename");
+            //    }
+            //}
+            //else
+            //{
+            //    Logger.Log(renamer.RenameQueue.Count +
+            //               " folder renames in Queue.  Skipping rename because preview/test is checked.");
+            //}
+
+
+            Logger.Log("Done.");
+            MessageBox.Show("Done");
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
         
 
     }
