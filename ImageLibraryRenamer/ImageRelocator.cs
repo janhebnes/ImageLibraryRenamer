@@ -298,9 +298,14 @@ namespace ImageLibraryRenamer
                 return directories.FirstOrDefault(d => d.Name.StartsWith((exifDate.ToString("yyyy-MM-dd"))));
             }
 
-            if (directories.Exists(d => d.Name.StartsWith((exifDate.ToString("yyyy-MM")))))
+            if (directories.Exists(d => d.Name.StartsWith((exifDate.ToString("yyyy-MM ")))))
             {
-                return directories.FirstOrDefault(d => d.Name.StartsWith((exifDate.ToString("yyyy-MM"))));
+                return directories.FirstOrDefault(d => d.Name.StartsWith((exifDate.ToString("yyyy-MM "))));
+            }
+
+            if (directories.Exists(d => d.Name == exifDate.ToString("yyyy-MM")))
+            {
+                return directories.FirstOrDefault(d => d.Name == exifDate.ToString("yyyy-MM"));
             }
 
             return null;
