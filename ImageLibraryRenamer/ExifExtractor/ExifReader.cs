@@ -83,11 +83,6 @@ namespace ExifLib
 
                 throw;
             }
-            finally
-            {
-                // make sure there's no mess left behind
-                Dispose();
-            }
         }
 
         #region TIFF methods

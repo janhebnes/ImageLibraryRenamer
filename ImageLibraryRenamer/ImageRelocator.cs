@@ -190,30 +190,32 @@ namespace ImageLibraryRenamer
                     }
                 }
 
-                if (!options.UseFileDateIfNoExif) continue;
-
-                if (fileCreateDate == null || file.CreationTime < fileCreateDate)
+                if (options.UseFileDateIfNoExif)
                 {
-                    fileCreateDate = file.CreationTime;
-                }
+                    if (fileCreateDate == null || file.CreationTime < fileCreateDate)
+                    {
+                        fileCreateDate = file.CreationTime;
+                    }
 
-                if (fileCreateDate == null || file.LastWriteTime < fileCreateDate)
-                {
-                    fileCreateDate = file.LastWriteTime;
-                }
+                    if (fileCreateDate == null || file.LastWriteTime < fileCreateDate)
+                    {
+                        fileCreateDate = file.LastWriteTime;
+                    }
 
-                if (fileCreateDate == null || file.LastAccessTime < fileCreateDate)
-                {
-                    fileCreateDate = file.LastAccessTime;
+                    if (fileCreateDate == null || file.LastAccessTime < fileCreateDate)
+                    {
+                        fileCreateDate = file.LastAccessTime;
+                    }
+                    
                 }
-
+                
                 if (exifDate == null && fileCreateDate == null)
                 {
                     options.Logger.Log("[SKIPPING] No dates found.");
                     continue;
                 }
 
-                DateTime folderDate = exifDate != null ? exifDate.Value : fileCreateDate.Value;
+                DateTime folderDate = (exifDate != null && exifDate.HasValue) ? exifDate.Value : fileCreateDate.Value;
                 string pattern = options.DatePattern.Replace("[folder]", "[]");
 
                 string dateString = folderDate.ToString(pattern);

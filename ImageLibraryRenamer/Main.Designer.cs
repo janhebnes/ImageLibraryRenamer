@@ -64,6 +64,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnParseFolderNames = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.chkCreateMissingTargetFolderImageRelocator = new System.Windows.Forms.CheckBox();
+            this.ckhRecursiveImageRelocator = new System.Windows.Forms.CheckBox();
             this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDatePatternImageRelocator = new System.Windows.Forms.TextBox();
@@ -72,8 +74,6 @@
             this.chkUseFileDateIfNoEXIFImageRelocator = new System.Windows.Forms.CheckBox();
             this.btnRelocateImages = new System.Windows.Forms.Button();
             this.chkUseEXIFDataToGetDateImageRelocator = new System.Windows.Forms.CheckBox();
-            this.ckhRecursiveImageRelocator = new System.Windows.Forms.CheckBox();
-            this.chkCreateMissingTargetFolderImageRelocator = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -491,6 +491,30 @@
             this.tabPage6.Text = "Image Relocator";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // chkCreateMissingTargetFolderImageRelocator
+            // 
+            this.chkCreateMissingTargetFolderImageRelocator.AutoSize = true;
+            this.chkCreateMissingTargetFolderImageRelocator.Checked = true;
+            this.chkCreateMissingTargetFolderImageRelocator.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkCreateMissingTargetFolderImageRelocator.Location = new System.Drawing.Point(31, 253);
+            this.chkCreateMissingTargetFolderImageRelocator.Name = "chkCreateMissingTargetFolderImageRelocator";
+            this.chkCreateMissingTargetFolderImageRelocator.Size = new System.Drawing.Size(158, 17);
+            this.chkCreateMissingTargetFolderImageRelocator.TabIndex = 28;
+            this.chkCreateMissingTargetFolderImageRelocator.Text = "Create missing target folders";
+            this.chkCreateMissingTargetFolderImageRelocator.UseVisualStyleBackColor = true;
+            // 
+            // ckhRecursiveImageRelocator
+            // 
+            this.ckhRecursiveImageRelocator.AutoSize = true;
+            this.ckhRecursiveImageRelocator.Checked = true;
+            this.ckhRecursiveImageRelocator.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckhRecursiveImageRelocator.Location = new System.Drawing.Point(31, 180);
+            this.ckhRecursiveImageRelocator.Name = "ckhRecursiveImageRelocator";
+            this.ckhRecursiveImageRelocator.Size = new System.Drawing.Size(163, 17);
+            this.ckhRecursiveImageRelocator.TabIndex = 27;
+            this.ckhRecursiveImageRelocator.Text = "Recursive inside main folders";
+            this.ckhRecursiveImageRelocator.UseVisualStyleBackColor = true;
+            // 
             // chkIgnoreFoldersNotMatchingDatePatternImageRelocator
             // 
             this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.AutoSize = true;
@@ -549,8 +573,6 @@
             // chkUseFileDateIfNoEXIFImageRelocator
             // 
             this.chkUseFileDateIfNoEXIFImageRelocator.AutoSize = true;
-            this.chkUseFileDateIfNoEXIFImageRelocator.Checked = true;
-            this.chkUseFileDateIfNoEXIFImageRelocator.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkUseFileDateIfNoEXIFImageRelocator.Location = new System.Drawing.Point(196, 203);
             this.chkUseFileDateIfNoEXIFImageRelocator.Name = "chkUseFileDateIfNoEXIFImageRelocator";
             this.chkUseFileDateIfNoEXIFImageRelocator.Size = new System.Drawing.Size(158, 17);
@@ -581,30 +603,6 @@
             this.chkUseEXIFDataToGetDateImageRelocator.TabIndex = 20;
             this.chkUseEXIFDataToGetDateImageRelocator.Text = "Use EXIF Data To Get Date";
             this.chkUseEXIFDataToGetDateImageRelocator.UseVisualStyleBackColor = true;
-            // 
-            // ckhRecursiveImageRelocator
-            // 
-            this.ckhRecursiveImageRelocator.AutoSize = true;
-            this.ckhRecursiveImageRelocator.Checked = true;
-            this.ckhRecursiveImageRelocator.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckhRecursiveImageRelocator.Location = new System.Drawing.Point(31, 180);
-            this.ckhRecursiveImageRelocator.Name = "ckhRecursiveImageRelocator";
-            this.ckhRecursiveImageRelocator.Size = new System.Drawing.Size(163, 17);
-            this.ckhRecursiveImageRelocator.TabIndex = 27;
-            this.ckhRecursiveImageRelocator.Text = "Recursive inside main folders";
-            this.ckhRecursiveImageRelocator.UseVisualStyleBackColor = true;
-            // 
-            // chkCreateMissingTargetFolderImageRelocator
-            // 
-            this.chkCreateMissingTargetFolderImageRelocator.AutoSize = true;
-            this.chkCreateMissingTargetFolderImageRelocator.Checked = true;
-            this.chkCreateMissingTargetFolderImageRelocator.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkCreateMissingTargetFolderImageRelocator.Location = new System.Drawing.Point(31, 253);
-            this.chkCreateMissingTargetFolderImageRelocator.Name = "chkCreateMissingTargetFolderImageRelocator";
-            this.chkCreateMissingTargetFolderImageRelocator.Size = new System.Drawing.Size(158, 17);
-            this.chkCreateMissingTargetFolderImageRelocator.TabIndex = 28;
-            this.chkCreateMissingTargetFolderImageRelocator.Text = "Create missing target folders";
-            this.chkCreateMissingTargetFolderImageRelocator.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
