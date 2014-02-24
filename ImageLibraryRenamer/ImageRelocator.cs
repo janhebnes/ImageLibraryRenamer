@@ -180,13 +180,15 @@ namespace ImageLibraryRenamer
 
                 options.Logger.LogAppendToLast(".");
 
+                var exifLogMessage = string.Empty;
+
                 if (options.UseExifDataToGetDate)
                 {
                     exifDate = ImageViewer.GetTakenTime(file.FullName);
 
                     if (exifDate != null && exifDate.Value.Year > 1994) // exif invented in 1995
                     {
-                        options.Logger.Log("Found EXIF date: " + exifDate);
+                        exifLogMessage = "Found EXIF date " + exifDate + " on " + file.FullName;
                     }
                 }
 
@@ -211,7 +213,7 @@ namespace ImageLibraryRenamer
                 
                 if (exifDate == null && fileCreateDate == null)
                 {
-                    options.Logger.Log("[SKIPPING] No dates found.");
+                    options.Logger.Log("[SKIPPING] No dates found on " + file.FullName);
                     continue;
                 }
 
@@ -222,13 +224,13 @@ namespace ImageLibraryRenamer
 
                 if (dateString.Contains(directoryInfo.Name))
                 {
-                    options.Logger.Log("[SKIPPING] folder name already contains the same date");
+                    //options.Logger.Log("[SKIPPING] folder name already contains the same date");
                     continue;
                 }
 
                 if (dateString.Contains(directoryInfo.Name.Split(' ').First()))
                 {
-                    options.Logger.Log("[SKIPPING] folder name already contains the same date");
+                    //options.Logger.Log("[SKIPPING] folder name already contains the same date");
                     continue;
                 }
 
@@ -242,11 +244,12 @@ namespace ImageLibraryRenamer
 
                 if (nearestTarget == null)
                 {
-                    options.Logger.Log(string.Format("[SKIPPING] target folder name matching {0} could not be detected", folderDate.ToString("yyyy-MM-dd")));
+                    //options.Logger.Log(exifLogMessage);
+                    //options.Logger.Log(string.Format("[SKIPPING] target folder name matching {0} could not be detected", folderDate.ToString("yyyy-MM-dd")));
                     string newUnknownDir = Path.Combine(directoryInfo.Parent.FullName, folderDate.ToString("yyyy-MM-dd"));
                     string newUnknownPath = Path.Combine(newUnknownDir, file.Name);
                     MissingTargetQueue.Add(file.FullName, newUnknownPath);
-                    options.Logger.Log(string.Format("[MISSINGRELOCATE] {0} >> {1}", file.FullName, newUnknownPath));
+                    options.Logger.Log(string.Format("[MISSINGRELOCATE] {0} >> {1}", exifLogMessage, newUnknownPath));
 
                     if (options.CreateMissingTargetFolders 
                         && !options.TestMode)
@@ -261,11 +264,13 @@ namespace ImageLibraryRenamer
 
                 if (File.Exists(newPath))
                 {
+                    options.Logger.Log(exifLogMessage);
                     options.Logger.Log("[SKIPPING] target file allready exists at " + newPath);
                     continue;
                 }
 
-                options.Logger.Log(string.Format("[RELOCATE] {0} >> {1}", file.FullName, newPath));
+                //options.Logger.Log(exifLogMessage);
+                options.Logger.Log(string.Format("[RELOCATE] {0} >> {1}", exifLogMessage, newPath));
 
                 
                 this.RelocatorQueue.Add(file.FullName, newPath);
@@ -286,6 +291,28 @@ namespace ImageLibraryRenamer
                     string directoryName = d.FullName;
                     ParseImageDates(directoryName);
                 });
+            }
+        }
+
+        private IEnumerable<DirectoryInfo> ParseEmptySubDirectories(DirectoryInfo directoryInfo)
+        {
+            var directories = directoryInfo.GetDirectories().ToList();
+            if (options.Recursive)
+            {
+                foreach (var directory in directories)
+                {
+                    var files = directory.GetFiles().ToList();
+                    var subdirectories = directory.GetDirectories().ToList();
+                    if (files.Count == 0 && subdirectories.Count == 0)
+                    {
+                        yield return directory;
+                    }
+
+                    if (files.Count == 1 && files[0].Name.Contains("picasa.ini") && subdirectories.Count == 0)
+                    {
+                        yield return directory;
+                    }
+                }
             }
         }
 
@@ -366,6 +393,25 @@ namespace ImageLibraryRenamer
                     }
                 });
             }
+        }
+
+        public void EraseEmptyDirectories(DirectoryInfo directoryInfo)
+        {
+            ParseEmptySubDirectories(directoryInfo).ToList().ForEach(emptyDirectory =>
+            {
+                try
+                {
+                    options.Logger.Log("[REMOVING] Empty directory at " + emptyDirectory.FullName);
+                    if (!options.TestMode)
+                    {
+                        emptyDirectory.Delete(true);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    options.Logger.FatalLog(ex.ToString());
+                }
+            });
         }
     }
 }

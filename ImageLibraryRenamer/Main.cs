@@ -3,6 +3,8 @@ using System.Windows.Forms;
 
 namespace ImageLibraryRenamer
 {
+    using System.IO;
+
     public partial class Main : Form
     {
         public delegate void StatusUpdated(object sender, EventArgs args);
@@ -154,7 +156,7 @@ namespace ImageLibraryRenamer
                 Logger.Log((relocater.RelocatorQueue.Count + relocater.MissingTargetQueue.Count) + " image relocations in Queue.  Renaming now..");
 
                 DialogResult response =
-                    MessageBox.Show(string.Format("Relocate {0} images now?", relocater.RelocatorQueue.Count),
+                    MessageBox.Show(string.Format("Relocate {0} images now?", relocater.RelocatorQueue.Count + relocater.MissingTargetQueue.Count),
                                     "Confirm Relocation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (response == DialogResult.Yes)
@@ -168,8 +170,8 @@ namespace ImageLibraryRenamer
             }
             else
             {
-                Logger.Log(relocater.RelocatorQueue.Count +
-                           " folder renames in Queue.  Skipping rename because preview/test is checked.");
+                Logger.Log((relocater.RelocatorQueue.Count + relocater.MissingTargetQueue.Count) +
+                           " image relocations in Queue.  Skipping rename because preview/test is checked.");
             }
 
 
@@ -179,6 +181,67 @@ namespace ImageLibraryRenamer
         private void label10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            Logger.Clear();
+
+            Logger.Log("Starting empty folder terminator...");
+
+            tabControl.SelectTab(1);
+
+            Application.DoEvents();
+
+            var options = new ImageRelocator.RelocateImagesParams(txtFileNamePattern.Text, 
+                                                                    txtDatePatternImageRelocator.Text, chkUseEXIFDataToGetDateImageRelocator.Checked,
+                                                                    chkUseFileDateIfNoEXIFImageRelocator.Checked, ckhRecursiveImageRelocator.Checked, chkPreviewImageRelocator.Checked)
+            {
+                SkipTopLevel = chkSkipTopLevelImageRelocator.Checked,
+                SkipNumeric = chkSkipNumeric.Checked,
+                SkipFolders = txtSkipFolders.Text,
+                Logger = Logger,
+                SkipIfFolderHasXmpFile = chkSkipIfXmp.Checked,
+                SkipIfFolderNameAlreadyHasDate = chkSkipIfFolderNameAlreadyHasDate.Checked,
+                CreateMissingTargetFolders = chkCreateMissingTargetFolderImageRelocator.Checked
+            };
+
+            var relocater = new ImageRelocator(options);
+
+            var directoryName = txtPath.Text;
+            if (string.IsNullOrWhiteSpace(directoryName) || !Directory.Exists(directoryName))
+            {
+                options.Logger.FatalLog(status: directoryName + " directory does not exist");
+                return;
+            }
+
+            var directoryInfo = new DirectoryInfo(directoryName);
+
+            if (!options.TestMode)
+            {
+                Logger.Log("Removing empty folders");
+
+                DialogResult response =
+                    MessageBox.Show(string.Format("Remove emtpy folders in {0} ?", directoryName),
+                                    "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (response == DialogResult.Yes)
+                {
+                    relocater.EraseEmptyDirectories(directoryInfo);
+                }
+                else
+                {
+                    Logger.Log("Cancelled removing empty folders");
+                }
+            }
+            else
+            {
+                relocater.EraseEmptyDirectories(directoryInfo);
+                Logger.Log("No changes done.  Skipping deletion because preview/test is checked.");
+            }
+
+            Logger.Log("Done.");
         }
 
         

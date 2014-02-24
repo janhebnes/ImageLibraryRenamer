@@ -75,6 +75,7 @@
             this.btnRelocateImages = new System.Windows.Forms.Button();
             this.chkUseEXIFDataToGetDateImageRelocator = new System.Windows.Forms.CheckBox();
             this.chkSkipTopLevelImageRelocator = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -256,8 +257,11 @@
             // 
             this.lbStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbStatus.FormattingEnabled = true;
+            this.lbStatus.HorizontalScrollbar = true;
+            this.lbStatus.ImeMode = System.Windows.Forms.ImeMode.On;
             this.lbStatus.Location = new System.Drawing.Point(3, 3);
             this.lbStatus.Name = "lbStatus";
+            this.lbStatus.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbStatus.Size = new System.Drawing.Size(456, 356);
             this.lbStatus.TabIndex = 0;
             // 
@@ -474,6 +478,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button1);
             this.tabPage6.Controls.Add(this.chkSkipTopLevelImageRelocator);
             this.tabPage6.Controls.Add(this.chkCreateMissingTargetFolderImageRelocator);
             this.tabPage6.Controls.Add(this.ckhRecursiveImageRelocator);
@@ -588,7 +593,7 @@
             this.btnRelocateImages.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRelocateImages.Location = new System.Drawing.Point(22, 289);
             this.btnRelocateImages.Name = "btnRelocateImages";
-            this.btnRelocateImages.Size = new System.Drawing.Size(422, 51);
+            this.btnRelocateImages.Size = new System.Drawing.Size(422, 36);
             this.btnRelocateImages.TabIndex = 19;
             this.btnRelocateImages.Text = "Relocate my Images!";
             this.btnRelocateImages.UseVisualStyleBackColor = true;
@@ -617,6 +622,18 @@
             this.chkSkipTopLevelImageRelocator.TabIndex = 29;
             this.chkSkipTopLevelImageRelocator.Text = "Skip top level domain (\"My Pictures\")";
             this.chkSkipTopLevelImageRelocator.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(22, 325);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(208, 31);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "Delete empty directories";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Main
             // 
@@ -653,7 +670,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.CheckBox chkUseFileDateIfNoEXIF;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ListBox lbStatus;
         private System.Windows.Forms.CheckBox chkRecusrive;
         private System.Windows.Forms.CheckBox chkPreview;
         private System.Windows.Forms.CheckBox chkSkipTopLevel;
@@ -690,6 +706,8 @@
         private System.Windows.Forms.CheckBox ckhRecursiveImageRelocator;
         private System.Windows.Forms.CheckBox chkCreateMissingTargetFolderImageRelocator;
         private System.Windows.Forms.CheckBox chkSkipTopLevelImageRelocator;
+        public System.Windows.Forms.ListBox lbStatus;
+        private System.Windows.Forms.Button button1;
     }
 }
 
