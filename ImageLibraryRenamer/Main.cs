@@ -130,23 +130,23 @@ namespace ImageLibraryRenamer
 
             Application.DoEvents();
 
-            //var options = new FolderDateRenamer.RenameFoldersParams(txtFileNamePattern.Text,chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Checked,
-            //                                                        txtDatePatternImageRelocator.Text, chkUseEXIFDataToGetDateImageRelocator.Checked,
-            //                                                        chkUseFileDateIfNoEXIFImageRelocator.Checked, chkPreviewImageRelocator.Checked)
-            //{
-            //    SkipTopLevel = chkSkipTopLevel.Checked,
-            //    SkipNumeric = chkSkipNumeric.Checked,
-            //    SkipFolders = txtSkipFolders.Text,
-            //    Logger = Logger,
-            //    SkipIfFolderHasXmpFile = chkSkipIfXmp.Checked,
-            //    SkipIfFolderNameAlreadyHasDate = chkSkipIfFolderNameAlreadyHasDate.Checked
-            //};
+            var options = new ImageRelocator.RelocateImagesParams(txtFileNamePattern.Text, 
+                                                                    txtDatePatternImageRelocator.Text, chkUseEXIFDataToGetDateImageRelocator.Checked,
+                                                                    chkUseFileDateIfNoEXIFImageRelocator.Checked, ckhRecursiveImageRelocator.Checked, chkPreviewImageRelocator.Checked)
+            {
+                SkipTopLevel = chkSkipTopLevel.Checked,
+                SkipNumeric = chkSkipNumeric.Checked,
+                SkipFolders = txtSkipFolders.Text,
+                Logger = Logger,
+                SkipIfFolderHasXmpFile = chkSkipIfXmp.Checked,
+                SkipIfFolderNameAlreadyHasDate = chkSkipIfFolderNameAlreadyHasDate.Checked
+            };
 
-            //var renamer = new FolderDateRenamer(options);
+            var relocater = new ImageRelocator(options);
 
-            //Logger.Log("Parsing images in " + txtPath.Text);
+            Logger.Log("Parsing images in " + txtPath.Text);
 
-            //renamer.ParseImageDates(txtPath.Text);
+            relocater.ParseImageDates(txtPath.Text);
 
             //if (!options.TestMode)
             //{
@@ -167,8 +167,8 @@ namespace ImageLibraryRenamer
             //}
             //else
             //{
-            //    Logger.Log(renamer.RenameQueue.Count +
-            //               " folder renames in Queue.  Skipping rename because preview/test is checked.");
+                Logger.Log(relocater.RenameQueue.Count +
+                           " folder renames in Queue.  Skipping rename because preview/test is checked.");
             //}
 
 

@@ -64,6 +64,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnParseFolderNames = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDatePatternImageRelocator = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -71,7 +72,7 @@
             this.chkUseFileDateIfNoEXIFImageRelocator = new System.Windows.Forms.CheckBox();
             this.btnRelocateImages = new System.Windows.Forms.Button();
             this.chkUseEXIFDataToGetDateImageRelocator = new System.Windows.Forms.CheckBox();
-            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator = new System.Windows.Forms.CheckBox();
+            this.ckhRecursiveImageRelocator = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -471,6 +472,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.ckhRecursiveImageRelocator);
             this.tabPage6.Controls.Add(this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator);
             this.tabPage6.Controls.Add(this.label10);
             this.tabPage6.Controls.Add(this.txtDatePatternImageRelocator);
@@ -486,6 +488,18 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Image Relocator";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // chkIgnoreFoldersNotMatchingDatePatternImageRelocator
+            // 
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.AutoSize = true;
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Checked = true;
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Location = new System.Drawing.Point(196, 181);
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Name = "chkIgnoreFoldersNotMatchingDatePatternImageRelocator";
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Size = new System.Drawing.Size(213, 17);
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.TabIndex = 26;
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Text = "Skip folders not matching Date Patterns";
+            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -566,17 +580,17 @@
             this.chkUseEXIFDataToGetDateImageRelocator.Text = "Use EXIF Data To Get Date";
             this.chkUseEXIFDataToGetDateImageRelocator.UseVisualStyleBackColor = true;
             // 
-            // chkIgnoreFoldersNotMatchingDatePatternImageRelocator
+            // ckhRecursiveImageRelocator
             // 
-            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.AutoSize = true;
-            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Checked = true;
-            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Location = new System.Drawing.Point(196, 181);
-            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Name = "chkIgnoreFoldersNotMatchingDatePatternImageRelocator";
-            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Size = new System.Drawing.Size(213, 17);
-            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.TabIndex = 26;
-            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.Text = "Skip folders not matching Date Patterns";
-            this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator.UseVisualStyleBackColor = true;
+            this.ckhRecursiveImageRelocator.AutoSize = true;
+            this.ckhRecursiveImageRelocator.Checked = true;
+            this.ckhRecursiveImageRelocator.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckhRecursiveImageRelocator.Location = new System.Drawing.Point(31, 180);
+            this.ckhRecursiveImageRelocator.Name = "ckhRecursiveImageRelocator";
+            this.ckhRecursiveImageRelocator.Size = new System.Drawing.Size(163, 17);
+            this.ckhRecursiveImageRelocator.TabIndex = 27;
+            this.ckhRecursiveImageRelocator.Text = "Recursive inside main folders";
+            this.ckhRecursiveImageRelocator.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -647,6 +661,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtDatePatternImageRelocator;
         private System.Windows.Forms.CheckBox chkIgnoreFoldersNotMatchingDatePatternImageRelocator;
+        private System.Windows.Forms.CheckBox ckhRecursiveImageRelocator;
     }
 }
 

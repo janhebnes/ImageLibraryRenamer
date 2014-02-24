@@ -53,6 +53,7 @@
     <Compile Include="FolderDateRenamer.cs" />
     <Compile Include="ExifExtractor\ImageViewer.cs" />
     <Compile Include="GetFileDateFromFolderName.cs" />
+    <Compile Include="ImageRelocator.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
