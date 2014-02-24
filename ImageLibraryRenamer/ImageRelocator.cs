@@ -175,6 +175,11 @@ namespace ImageLibraryRenamer
             
             foreach (var file in files)
             {
+                if (file.Name.Contains("picasa.ini"))
+                {
+                    continue;
+                }
+
                 DateTime? exifDate = null;
                 DateTime? fileCreateDate = null;
 
@@ -192,21 +197,24 @@ namespace ImageLibraryRenamer
                     }
                 }
 
-                if (options.UseFileDateIfNoExif)
+                if (options.UseFileDateIfNoExif || file.Extension.ToLowerInvariant() == ".mp4" || file.Extension.ToLowerInvariant() == ".mts")
                 {
                     if (fileCreateDate == null || file.CreationTime < fileCreateDate)
                     {
                         fileCreateDate = file.CreationTime;
+                        exifLogMessage = "Found CreationTime " + fileCreateDate + " on " + file.FullName;
                     }
 
                     if (fileCreateDate == null || file.LastWriteTime < fileCreateDate)
                     {
                         fileCreateDate = file.LastWriteTime;
+                        exifLogMessage = "Found LastWriteTime " + fileCreateDate + " on " + file.FullName;
                     }
 
                     if (fileCreateDate == null || file.LastAccessTime < fileCreateDate)
                     {
                         fileCreateDate = file.LastAccessTime;
+                        exifLogMessage = "Found LastAccessTime " + fileCreateDate + " on " + file.FullName;
                     }
                     
                 }
@@ -264,8 +272,7 @@ namespace ImageLibraryRenamer
 
                 if (File.Exists(newPath))
                 {
-                    options.Logger.Log(exifLogMessage);
-                    options.Logger.Log("[SKIPPING] target file allready exists at " + newPath);
+                    options.Logger.Log(string.Format("[SKIPPING] target file allready exists for {0} at {1}", exifLogMessage, newPath));
                     continue;
                 }
 
