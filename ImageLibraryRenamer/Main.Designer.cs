@@ -74,6 +74,7 @@
             this.chkUseFileDateIfNoEXIFImageRelocator = new System.Windows.Forms.CheckBox();
             this.btnRelocateImages = new System.Windows.Forms.Button();
             this.chkUseEXIFDataToGetDateImageRelocator = new System.Windows.Forms.CheckBox();
+            this.chkSkipTopLevelImageRelocator = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -473,6 +474,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.chkSkipTopLevelImageRelocator);
             this.tabPage6.Controls.Add(this.chkCreateMissingTargetFolderImageRelocator);
             this.tabPage6.Controls.Add(this.ckhRecursiveImageRelocator);
             this.tabPage6.Controls.Add(this.chkIgnoreFoldersNotMatchingDatePatternImageRelocator);
@@ -604,6 +606,18 @@
             this.chkUseEXIFDataToGetDateImageRelocator.Text = "Use EXIF Data To Get Date";
             this.chkUseEXIFDataToGetDateImageRelocator.UseVisualStyleBackColor = true;
             // 
+            // chkSkipTopLevelImageRelocator
+            // 
+            this.chkSkipTopLevelImageRelocator.AutoSize = true;
+            this.chkSkipTopLevelImageRelocator.Checked = true;
+            this.chkSkipTopLevelImageRelocator.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkSkipTopLevelImageRelocator.Location = new System.Drawing.Point(196, 253);
+            this.chkSkipTopLevelImageRelocator.Name = "chkSkipTopLevelImageRelocator";
+            this.chkSkipTopLevelImageRelocator.Size = new System.Drawing.Size(201, 17);
+            this.chkSkipTopLevelImageRelocator.TabIndex = 29;
+            this.chkSkipTopLevelImageRelocator.Text = "Skip top level domain (\"My Pictures\")";
+            this.chkSkipTopLevelImageRelocator.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -675,6 +689,7 @@
         private System.Windows.Forms.CheckBox chkIgnoreFoldersNotMatchingDatePatternImageRelocator;
         private System.Windows.Forms.CheckBox ckhRecursiveImageRelocator;
         private System.Windows.Forms.CheckBox chkCreateMissingTargetFolderImageRelocator;
+        private System.Windows.Forms.CheckBox chkSkipTopLevelImageRelocator;
     }
 }
 

@@ -134,7 +134,7 @@ namespace ImageLibraryRenamer
                                                                     txtDatePatternImageRelocator.Text, chkUseEXIFDataToGetDateImageRelocator.Checked,
                                                                     chkUseFileDateIfNoEXIFImageRelocator.Checked, ckhRecursiveImageRelocator.Checked, chkPreviewImageRelocator.Checked)
             {
-                SkipTopLevel = chkSkipTopLevel.Checked,
+                SkipTopLevel = chkSkipTopLevelImageRelocator.Checked,
                 SkipNumeric = chkSkipNumeric.Checked,
                 SkipFolders = txtSkipFolders.Text,
                 Logger = Logger,
